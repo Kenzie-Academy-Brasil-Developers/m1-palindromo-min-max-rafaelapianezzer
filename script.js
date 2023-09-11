@@ -1,18 +1,16 @@
 function isPalindrome(str) {
+    const fraseFormatada = str.toLowerCase().replaceAll(' ','');
+    const length = fraseFormatada.length;
 
-    const fraseFormatada = str.toLowerCase().replaceAll(' ', '');
-    const frase = fraseFormatada.split('');
-    const fraseAoContrario = frase.reverse();
-    const fraseAoContrarioString = fraseAoContrario.join('');
+    for (let inicio = 0, fim = length - 1; inicio < fim; inicio++, fim--) {
+        if (fraseFormatada[inicio] !== fraseFormatada[fim]) {
+            return false;
+        }
+    } 
 
-
-    if (fraseFormatada === fraseAoContrarioString) {
-        return true
-    } else {
-        return false
-    }
-
+    return true;
 }
+
 
 
 function arrayMaxMin(arr) {
@@ -25,19 +23,14 @@ function arrayMaxMin(arr) {
         if (numeroAtual > max) {
             max = numeroAtual
         }
-    }
-
-    for (let i = 0; i < arr.length; i++) {
-        const numeroAtual = arr[i];
+     
         if (numeroAtual < min || min === 0){
             min = numeroAtual
         }
     }
 
-
     resultado[0] = min
     resultado[1] = max
-    console.log(resultado)
     return resultado
 }
 
